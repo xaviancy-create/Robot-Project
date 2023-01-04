@@ -47,3 +47,14 @@ TC_004_login_with_valid_username_with_valid_password_in_case_sensitive
     ${Info!}=    Get Text    ${toast_message}
     Should Be Equal    ${Info!}    Info!\nInvalid credentials
     Close Browser 
+    
+TC_005 login_with_valid_username_with_valid_password_in_case_sensitive
+    [Tags]    negative
+    App_Launch_KW
+    Input Text    ${login_email}    ${investor-user}
+    Input Password    ${login_password}    ${case-sensitive-investor-password}
+    Click Element    ${login_submit}
+    Wait Until Element Is Visible    ${toast_message}
+    ${Info!}=    Get Text    ${toast_message}
+    Should Be Equal    ${Info!}    Info!\nInvalid credentials
+    Close Browser 
